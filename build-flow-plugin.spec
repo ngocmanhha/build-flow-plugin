@@ -1,8 +1,9 @@
 %global     plugin_name build-flow-plugin
 Name:       jenkins-in-house-plugins-%{plugin_name}
 Version:    0.20
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    A jenkins in-house plugins %{plugin_name}.hpi
+Obsoletes:  jenkins-upstream-plugins-%{plugin_name} <= %{version}
 Requires:   jenkins
 Group:      Development/Libraries
 License:    BSD
@@ -34,5 +35,8 @@ mvn package --batch-mode -Dmaven.test.skip=true
 %{_sharedstatedir}/juseppe/%{plugin_name}.hpi
 
 %changelog
-* Mon Apr 13 2020 +0700 tvhien <tranvanhien.engineer@gmail.com> - 0.20-1
+* Thu Apr 23 2020 +0700 Hien Tran <hien.tran@gooddata.com> - 0.20-2
+- CONFIG: SETI-4077 remove obsoletes package in spec file
+
+* Mon Apr 13 2020 +0700 Hien Tran <hien.tran@gooddata.com> - 0.20-1
 - CONFIG: SETI-4077 add build-flow-plugin.spec and Makefile
