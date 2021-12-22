@@ -1,7 +1,8 @@
 %global     plugin_name build-flow-plugin
+%global     debug_package %{nil}
 Name:       jenkins-in-house-plugins-%{plugin_name}
 Version:    0.20
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    A jenkins in-house plugins %{plugin_name}.hpi
 Obsoletes:  jenkins-upstream-plugins-%{plugin_name} <= %{version}
 Requires:   jenkins
@@ -35,6 +36,11 @@ mvn package --batch-mode -Dmaven.test.skip=true
 %{_sharedstatedir}/juseppe/%{plugin_name}.hpi
 
 %changelog
+* Wed Dec 22 2021 +0700 Manh Ha <manh.ha@gooddata.com> - 0.20-3
+- CONFIG: SETI-6576 support el8
+- Update repository and pluginRepository urls for pom.xml
+- Bump version for build-flow-plugin to 3 to override previous version
+
 * Thu Apr 23 2020 +0700 Hien Tran <hien.tran@gooddata.com> - 0.20-2
 - CONFIG: SETI-4077 remove obsoletes package in spec file
 
